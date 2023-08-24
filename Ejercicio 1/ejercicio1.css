@@ -1,0 +1,99 @@
+body {
+    background-color: rgb(54, 69, 89);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: "Roboto";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 955px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+}
+
+.izquierda {
+    color: rgb(18, 31, 31);
+    padding: 3.5rem;
+    flex: 1; 
+}
+
+.infoizqu h1 {
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+}
+
+.infoizqu p,
+.infoizqu ul {
+    margin-bottom: 1.5rem;
+}
+
+.infoizqu ul {
+    padding: 0; 
+    margin-left: 0; 
+}
+
+.infoizqu ul li {
+    list-style-image: url(imagenes/check.svg);
+    list-style-position: inside;
+    margin-left: 0; 
+}
+
+.infoizqu ul li::before {
+    content: ''; 
+    margin-right: .5rem;
+}
+
+.formitem {
+    display: flex;
+    flex-direction: column;
+}
+
+.formitem label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.formitem input,
+.formitem button {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.formitem input {
+    border: 1px solid gray;
+}
+
+.formitem button {
+    cursor: pointer;
+    background: rgb(18, 31, 31);
+    color: white;
+    font-weight: 700;
+    outline: none;
+    border: none;
+}
+
+.derecha {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.derecha img {
+    max-width: 100%;
+    height: auto;
+    align-self: flex-end;
+}
