@@ -13,7 +13,7 @@ export const LoginHeader = () => {
         <StyledText
           text={"Sign in to your Account"}
           fontSize={16}
-          color={"white"}
+          color={"#96a0a8"}
           marginLeft={20}
         />
       </View>
