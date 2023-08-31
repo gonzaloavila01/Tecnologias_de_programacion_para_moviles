@@ -2,14 +2,12 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { THEME } from "../../theme/colors";
 
-const LoginButton = (props) => {
-  return (
+const LoginButton = (props) => (
     <TouchableOpacity style={styles.iconButton}>
       <Image style={styles.image} source={props.imageSource}/>
       <Text>{props.text}</Text>
     </TouchableOpacity>
-  );
-};
+  )
 
 const styles = StyleSheet.create({
   iconButton: {

@@ -19,18 +19,18 @@ export const LoginContent = () => {
             </View>
         </View>
         <View style={styles.log}>
-        <LoginButton
-          text={"Google"}
-          imageSource={googleImage}
-        />
-        <LoginButton
-          text={"Facebook"}
-          imageSource={facebookImage}
-        />
+            <LoginButton
+            text={"Google"}
+            imageSource={googleImage}
+            />
+            <LoginButton
+            text={"Facebook"}
+            imageSource={facebookImage}
+            />
         </View>
         <View style={styles.bottom}>
-        <Text style={{ marginRight: 10 }}>Don't have an account?</Text>
-        <Text style={styles.text}>Register</Text>
+            <Text style={{ marginRight: 10 }}>Don't have an account?</Text>
+            <Text style={styles.text}>Register</Text>
         </View>
       </View>
 
