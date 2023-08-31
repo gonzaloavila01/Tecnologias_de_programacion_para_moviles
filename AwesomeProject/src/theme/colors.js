@@ -4,8 +4,8 @@ export const  THEME = {
         WHITE: 'FFFFFF',
         GRAY: "#0c1c2c",
         GREEN:{
-            DARK: '#c0e863',
-            LIGHT: '#62950c',
+            DARK: '#62950c',
+            LIGHT: '#c0e863',
         }
     }
 }

@@ -1,7 +1,7 @@
-import { Image, View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { THEME } from "../../theme/colors";
 import { facebookImage, googleImage } from "../../../assets";
-
+import LoginButton from "./LoginButton";
 export const LoginContent = () => {
     return(
       <View style={styles.container}>
@@ -18,15 +18,19 @@ export const LoginContent = () => {
                 <View style={styles.line}></View>
             </View>
         </View>
-        <View>
-            <TouchableOpacity style={styles.iconButton}>
-                <Image style={styles.image} source={{googleImage}}/>
-                <Text>Google</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Image style={styles.image} source={facebookImage}/>
-                <Text>Facebook</Text>
-            </TouchableOpacity>
+        <View style={styles.log}>
+        <LoginButton
+          text={"Google"}
+          imageSource={googleImage}
+        />
+        <LoginButton
+          text={"Facebook"}
+          imageSource={facebookImage}
+        />
+        </View>
+        <View style={styles.bottom}>
+        <Text style={{ marginRight: 10 }}>Don't have an account?</Text>
+        <Text style={styles.text}>Register</Text>
         </View>
       </View>
 
@@ -67,18 +71,29 @@ const styles = StyleSheet.create({
     },
     buttonText:{
         fontSize: 19,
-        fontWeight: 'bols',
+        fontWeight: 'bold',
         color: THEME.COLORS.DARK_BLUE
     },
     line:{
         borderWidth: 1,
         flex: 1,
         borderColor: THEME.COLORS.GRAY,
-        marginBottom: 5
+        marginBottom: 8
     },
     image:{
         height: 20,
         width: 20
-    }
+    },
+    log: {
+        justifyContent: "space-between",
+        flexDirection: "row",
+        marginTop: 30,
+      },
+    bottom: {
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        marginTop: 150,
+        flexDirection: 'row'
+      }
 
 })
