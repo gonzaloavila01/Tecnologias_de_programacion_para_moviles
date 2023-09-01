@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, StatusBar, TouchableHighlight, Alert, ScrollView, FlatList } from 'react-native';
-//import Login from './src/screens/Login';
+
+import { StyleSheet, Text, View, StatusBar, FlatList } from 'react-native';
 import Person from './src/components/Person/Person';
 
 const DATA= [
@@ -8,49 +8,46 @@ const DATA= [
   {id:2, name:'Pedro', lastName: 'Gomez'},
   {id:3, name:'Alberto', lastName: 'Serrano'},
   {id:4, name:'Alan', lastName: 'Garcia'},
-  {id:5, name:'Alan 1', lastName: 'Garcia'},
-  {id:6, name:'Alan 2', lastName: 'Garcia'},
-  {id:7, name:'Alan 3', lastName: 'Garcia'},
-  {id:8, name:'Alan 4', lastName: 'Garcia'},
-  {id:9, name:'Alan 5', lastName: 'Garcia'},
-  {id:10, name:'Alan 6', lastName: 'Garcia'},
+  {id:5, name:'Guadalupe', lastName: 'Victoria'},
+  {id:6, name:'Gonzalo', lastName: 'Avila'},
+  {id:7, name:'Sebastian', lastName: 'Castro'},
+  {id:8, name:'Humberto', lastName: 'Morales'},
+  {id:9, name:'Grecia', lastName: 'Ximello'},
+  {id:10, name:'Evelyn', lastName: 'Guillen'},
 ]
 
-export default function App() { 
-  
+export default function App() {
   return (
-      <View style={styles.container}>
-          <FlatList
-          data={DATA}
-          renderItem={({item: {name, lastName}, index}) =>
-          <Person name= {name} lastName={lastName} index={index}/>
-        }   
-            
-          ItemSeparatorComponent={<Text>a</Text>}
-          keyExtractor={({id}) => id}
-          />
-          <StatusBar style='auto' />
-      </View>
-    // <ScrollView style={styles.container }>
-    //  {/* <Login/> */}
-    //  { DATA.map(({id, name, lastName}) =>{
-    //   <View key={person.id} style={{borderWidth: 1, borderColor: 'red'}}>
-    //       <Text style={{fontSize: 40}}>{name}</Text>
-    //       <Text style={{fontSize: 40}}>{lastName}</Text>
-    //   </View>
-    //  })
-
-    //  }
-    // </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        data={DATA} style={styles.lista} 
+        renderItem={({ item: { name, lastName }, index }) => (
+          <Person name={name} lastName={lastName} index={index} />
+        )}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        keyExtractor={({ id }) => id}
+      />
+      <StatusBar style='auto' />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: 35,
-    // flex: 1,
-    // backgroundColor: '#FFFFFF',
-    // alignItems: 'center'
+    //flex: 1,
+  },
+  lista: {
+    borderWidth:4,
+    borderColor: '#0605E1',
+    borderRadius: 10,
+    margin: 5,
+    padding: 1,
+  },
+  separator: {
+    height: 1,
+    borderWidth: 1,
+    borderColor: '#0605E1',
   },
   
 });
