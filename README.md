@@ -1,2 +1,3 @@
-"# Tecnologias_de_programacion_para_moviles" 
-"# Tecnologias_de_programacion_para_moviles" 
+Integrantes:
+Gonzalo Ávila García
+Humberto Morales Vargas
