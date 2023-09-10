@@ -1,27 +1,22 @@
 import React from "react";
-import { AntDesign } from '@expo/vector-icons';
+import {Ionicons, AntDesign} from "@expo/vector-icons";
 import { View, Text, StyleSheet } from "react-native";
 
 const Card = ({isDarkBlue, text, iconName, iconType}) =>{
-    const iconColor = isDarkBlue ? '#537acd' : 'white'
-    const CustomIcon = 
+    const iconColor = isDarkBlue ?  '#537acd' : 'white'
+    const CustomIcon =  
     iconType === 'Ionicons' 
         ? <Ionicons color={iconColor} name={iconName} size={30}/>
             :<AntDesign color={iconColor} name={iconName} size={30}/>
-
             return(
-                <View>
-                    <View style={[styles.cardContainer, 
-                        isDarkBlue?styles.cardContainerDark:styles.cardContainerLight]}>
-                            <View style={[styles.cardIconContainer, 
-                                isDarkBlue?styles.cardIconContainerDark:styles.cardIconContainerLight]}>
-                                {CustomIcon}
-                            </View>
-                            <Text style={[styles.cardText,
-                                isDarkBlue?styles.cardTextDark:styles.cardTextLight]}
-                            >Start training</Text>
-                    </View>
-                </View>
+                <View style={[styles.cardContainer, 
+                    isDarkBlue ? styles.cardContainerDark : styles.cardContainerLight]}>
+                 <View style={[styles.cardIconContainer, 
+                        isDarkBlue ? styles.cardIconContainerDark : styles.cardIconContainerLight]}>
+                        {CustomIcon}
+                 </View>
+                <Text style={[styles.cardText, isDarkBlue ? styles.cardTextDark : styles.cardTextLight]}>{text}</Text>
+            </View>
             )
         }
         

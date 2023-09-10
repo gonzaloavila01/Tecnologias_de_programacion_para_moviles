@@ -1,16 +1,15 @@
 import React from "react";
 import { Image, StyleSheet, View, Text } from "react-native";
 import { AntDesign} from '@expo/vector-icons';
+const IMAGE = require('../assets/memoji.png');
 
-const Therapist = ({image, name, job, rate}) =>{
+const Therapist = ({name, job, rate}) =>{
     return(
         <View style={styles.container}>
             <Image
-                source={
-                    require(image)
-                }
+                source={IMAGE}
                 style={styles.image}
-                />
+                /> 
             <View style={styles.therapistInfo}>
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.therapistJob}>{job}</Text>
@@ -25,36 +24,42 @@ const Therapist = ({image, name, job, rate}) =>{
 
 
 const styles = StyleSheet.create({
-    container:{
-        borderRadius: 10,
-        backgroundColor: '#f7f8fa', 
-        flexDirection: 'row', 
-        justifyContent: 'space-around', 
-        alignItems: 'center', 
-        paddingVertical: 20
+    container: {
+      borderRadius: 10,
+      backgroundColor: '#f7f8fa',
+      flexDirection: 'row',
+      justifyContent: 'flex-start', 
+      alignItems: 'center',
+      paddingVertical: 20,
     },
-    image:{
-        height: 40,
-        width: 40,
-        borderRadius: 50,
+    image: {
+      marginLeft: 30,
+      height: 40,
+      width: 40,
+      borderRadius: 50,
     },
-    name:{
-        fontSize: 20,
-        color: '#495258',
-        fontWeight: 'bold',
+    name: {
+      fontSize: 20,
+      color: '#495258',
+      fontWeight: 'bold',
     },
-    grayText:{
-        color: '#d4d4d7',
-        fontWeight: 'bold',
-        fontSize: 15,
-        marginTop: 5
+    grayText: {
+      color: '#d4d4d7',
+      fontWeight: 'bold',
+      fontSize: 15,
+      marginTop: 5,
     },
-    therapistRate:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 5,
-    }
-
-})
-
+    therapistRate: {
+      marginRight: 20,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 5,
+      marginLeft: 10, 
+    },
+    therapistInfo: {
+      marginLeft: 30, 
+      flex: 1, 
+    },
+  });
+  
 export default Therapist
