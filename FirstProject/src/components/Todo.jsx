@@ -3,13 +3,14 @@ import { View, StyleSheet, Text} from "react-native";
 import CustomButton from "./CustomButton";
 
 
-const Todo = ({name}) => {
+const Todo = ({id, name, handleDelete, handleComplete, isCompleted}) => {
     return(
-        <View style={styles.container}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white'}}>{name}</Text>
+        <View style={[styles.container, isCompleted&&styles.todoCompleted]}>
+            <Text style={[styles.tittle, isCompleted&&styles.completedTittle]}>{name}</Text>
             <View style={{flexDirection: 'row', gap: 10}}>
-                <CustomButton text={'Edit'} light iconName={'pencil'}/>
-                <CustomButton text={'Delete'} light iconName={'trash'}/>
+                <CustomButton text={'Delete'} light={isCompleted ? false : true} onPress={() => handleDelete(id)}/>
+                <CustomButton text={'Edit'} light={isCompleted ? false : true}/>
+                <CustomButton text={isCompleted ? 'Done' : 'Complete'} light={isCompleted ? false : true} onPress={() => handleComplete(id)}/>
             </View>
         </View>
     )
@@ -18,15 +19,25 @@ const Todo = ({name}) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        alignItems: "center",
         marginTop: 30,
         justifyContent: 'space-between',
         padding: 15,
         borderRadius: 5,
-        backgroundColor: '#1e81b0',
+        backgroundColor: '#2d705f',
         borderColor: 'white',
     },
-
+    todoCompleted:{
+        backgroundColor: '#2c719f',
+    },
+    tittle:{
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+    completedTittle:{
+        textDecorationLine: 'line-through',
+        color: '#b3b3b3'
+    }
 })
 
 export default Todo
