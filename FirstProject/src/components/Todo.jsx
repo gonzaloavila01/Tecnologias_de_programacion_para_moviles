@@ -8,8 +8,8 @@ const Todo = ({name}) => {
         <View style={styles.container}>
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white'}}>{name}</Text>
             <View style={{flexDirection: 'row', gap: 10}}>
-                <CustomButton text={'Delete'} light/>
-                <CustomButton text={'Edit'} light/>
+                <CustomButton text={'Edit'} light iconName={'pencil'}/>
+                <CustomButton text={'Delete'} light iconName={'trash'}/>
             </View>
         </View>
     )
@@ -18,11 +18,12 @@ const Todo = ({name}) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        alignItems: "center",
         marginTop: 30,
         justifyContent: 'space-between',
         padding: 15,
         borderRadius: 5,
-        backgroundColor: '#2d705f',
+        backgroundColor: '#1e81b0',
         borderColor: 'white',
     },
 

@@ -5,6 +5,7 @@ import Todo from './src/components/Todo';
 import CustomButton from './src/components/CustomButton';
 import TodoInput from './src/components/TodoInput';
 import Constants from 'expo-constants';
+import { Octicons } from '@expo/vector-icons';
 
 export default function App() {
 
@@ -35,13 +36,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={{paddingHorizontal: 20, paddingTop: 10}}>
-        <Text style={{fontSize: 40, fontWeight: 'bold', textAlign: 'center', color: 'white'}}>Todo list</Text>
+        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{fontSize: 40, fontWeight: 'bold', textAlign: 'center', color: 'white'}}>Todo list  </Text>
+          <Octicons name="tasklist" size={30} color="white" />
+        </View>
           <View style={{flexDirection: 'row', marginTop: 20, gap:20}}>
             <TodoInput 
               value={inputValue}
               onChangeText={(value) => setInputValue(value)}
               />
-            <CustomButton onPress={handleAddTodo} text={'Add Task'} light/>
+            <CustomButton onPress={handleAddTodo} text={'Add Task'} light iconName={'plus'}/>
           </View>
           <FlatList
               data={todos}
@@ -56,7 +60,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2a6355',
+    backgroundColor: '#9bb0c6',
     height: '100%',
     paddingTop: Constants.statusBarHeight+10,
   },
