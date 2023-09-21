@@ -28,7 +28,7 @@ export const ModalTodo = ({id, name, dateAdded, updated, isCompleted}) =>{
                 {actualizado(updated)}
                 <View style={styles.parrafos}>
                     <Text style={styles.labelText}>Status</Text>
-                    <Text style={styles.labelText}>{isCompleted? 'Completed': 'Pending'}</Text>
+                    <Text style={styles.labelText}>{isCompleted? 'Completed': 'Not completed'}</Text>
                 </View>
             </View>
         </View>
