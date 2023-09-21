@@ -11,92 +11,19 @@ import Todo from './src/components/Todo';
 import CustomButton from './src/components/CustomButton';
 import TodoInput from './src/components/TodoInput';
 import Constants from 'expo-constants';
+import { useTodos } from './src/hooks/useTodos';
 
 export default function App() {
-  // Declaración de estados
-  const [inputValue, setInputValue] = useState('');
-  const [todos, setTodos] = useState([]);
-  const [editId, setEditId] = useState(null);
-
-  // Función para mostrar mensajes de error
-  const handleShowError = (error) => {
-    Alert.alert('Error', error, [{ text: 'Aceptar' }]);
-  };
-
-  // Función para obtener la fecha actual formateada
-  const getDate = () => {
-    const currentDate = new Date();
-    return currentDate.toLocaleString();
-  };
- 
-  // Función para agregar o actualizar una tarea
-  const handleAddTodo = () => {
-    // Validación de entrada vacía
-    if (inputValue === '') return handleShowError('Debes darle un nombre a la tarea');
-
-    const isEditing = editId !== null;
-    const existingTodo = todos.some(
-      (todo) =>
-        todo.name.toLowerCase() === inputValue.toLowerCase() &&
-        (!isEditing || todo.id !== editId)
-    );
-
-    // Validación de tarea duplicada
-    if (existingTodo) {
-      return handleShowError('Ya existe una tarea con ese nombre');
-    }
-
-    const newTodo = {
-      id: isEditing ? editId : new Date().toISOString(),
-      name: inputValue,
-      isCompleted: false,
-      dateAdded: getDate(),
-      updated: isEditing ? getDate() : '',
-    };
-
-    // Actualizar una tarea existente
-    if (isEditing) {
-      setTodos((prevTodos) =>
-        prevTodos.map((todo) =>
-          todo.id === editId ? { ...todo, ...newTodo } : todo
-        )
-      );
-      setEditId(null);
-    } else {
-      // Agregar una nueva tarea
-      setTodos((prevTodos) => [...prevTodos, newTodo]);
-    }
-
-    setInputValue('');
-  };
-  
-  // Función para eliminar una tarea
-  const handleDeleteTodo = (todoId) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
-  };
-
-  // Función para marcar o desmarcar una tarea como completada
-  const handleCompleteTodo = (todoId) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === todoId ? { ...todo, isCompleted: !todo.isCompleted } : todo
-      )
-    );
-  };
-
-  // Función para gestionar la edición de una tarea
-  const handleUpdateButton = (todoId) => {
-    // Si el botón de edición se presiona nuevamente, cancelar la edición
-    if (todoId === editId) {
-      setEditId(null);
-      setInputValue('');
-    } else {
-      // Editar una tarea existente
-      const todoToUpdate = todos.find((todo) => todo.id === todoId);
-      setInputValue(todoToUpdate.name);
-      setEditId(todoId);
-    }
-  };
+  const {
+    inputValue,
+    todos,
+    editId,
+    handleAddTodo,
+    handleDeleteTodo,
+    handleCompleteTodo,
+    handleUpdateButton,
+    setInputValue
+  } = useTodos()
 
   return (
     <View style={styles.container}>
@@ -134,7 +61,7 @@ export default function App() {
       />
     </View>
   );
-}
+        }      
 
 const styles = StyleSheet.create({
   container: {
